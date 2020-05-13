@@ -58,11 +58,11 @@ pub fn push(name: String) -> rocket::response::status::Accepted<String> {
         let mut db = StupidDb::new();
         let repository = db.open(&name_in_thread);
         if repository.is_err() {
-            return
+            return;
         }
         match repository.as_ref().unwrap().push() {
             Ok(_) => println!("Repository was pushed. We can notify services."),
-            Err(_) => println!("Error occured.")
+            Err(_) => println!("Error occured."),
         }
     });
 

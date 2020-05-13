@@ -37,6 +37,8 @@ impl StupidDb {
         let index_entry =
             models::StupidEntry::new(blob.oid.unwrap().clone(), blob.name.clone().into_bytes());
 
+        println!("{}", blob.oid.as_ref().unwrap());
+
         let add_result = index.add(&index_entry.entry).map_err(|e| {
             println!("{}", e);
             return error::StupidDbError::BlobFailed;
